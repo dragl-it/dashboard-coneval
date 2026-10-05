@@ -13,52 +13,81 @@
       function drawCharts() {
         // Gráfico 1: Líneas (Evolución Pobreza Total)
         var data1 = google.visualization.arrayToDataTable([
-          ['Año', 'Población en Situación de Pobreza (Millones)'],
+          ['Año', 'Población (Millones de personas)'],
           ['2008', 49.5], ['2010', 52.8], ['2012', 53.3],
           ['2014', 55.3], ['2016', 53.4], ['2018', 52.4]
         ]);
-        var options1 = { title: 'Evolución de la Población en Situación de Pobreza (2008-2018)', curveType: 'function', legend: { position: 'bottom' }, colors: ['#1A365D'] };
+        var options1 = { 
+          title: 'Evolución de la Población en Situación de Pobreza (2008-2018)', 
+          curveType: 'function', 
+          legend: { position: 'bottom' }, 
+          colors: ['#1A365D'],
+          vAxis: { title: 'Millones de personas' },
+          hAxis: { title: 'Año' }
+        };
         var chart1 = new google.visualization.LineChart(document.getElementById('chart_div_1'));
         chart1.draw(data1, options1);
 
         // Gráfico 2: Columnas (Pobreza Extrema)
         var data2 = google.visualization.arrayToDataTable([
-          ['Año', 'Pobreza Extrema (Millones)'],
+          ['Año', 'Población en Pobreza Extrema (Millones)'],
           ['2008', 12.3], ['2010', 13.0], ['2012', 11.5],
           ['2014', 11.4], ['2016', 9.4], ['2018', 9.3]
         ]);
-        var options2 = { title: 'Población en Situación de Pobreza Extrema (2008-2018)', legend: { position: 'none' }, colors: ['#2980B9'] };
+        var options2 = { 
+          title: 'Población en Situación de Pobreza Extrema (2008-2018)', 
+          legend: { position: 'none' }, 
+          colors: ['#2980B9'],
+          vAxis: { title: 'Millones de personas' },
+          hAxis: { title: 'Año' }
+        };
         var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_div_2'));
         chart2.draw(data2, options2);
 
         // Gráfico 3: Barras Horizontales (Carencias Sociales)
         var data3 = google.visualization.arrayToDataTable([
-          ['Carencia Social', 'Porcentaje (%)'],
+          ['Carencia Social', 'Porcentaje de la Población (%)'],
           ['Rezago educativo', 16.9], ['Servicios de salud', 16.2],
           ['Seguridad social', 47.2], ['Espacios vivienda', 11.1],
           ['Servicios básicos', 19.8], ['Alimentación', 20.4]
         ]);
-        var options3 = { title: 'Carencias Sociales Promedio por Persona (2018)', legend: { position: 'none' }, colors: ['#27AE60'] };
+        var options3 = { 
+          title: 'Carencias Sociales Promedio por Persona (2018)', 
+          legend: { position: 'none' }, 
+          colors: ['#27AE60'],
+          hAxis: { title: 'Porcentaje (%)' },
+          vAxis: { title: 'Tipo de Carencia' }
+        };
         var chart3 = new google.visualization.BarChart(document.getElementById('chart_div_3'));
         chart3.draw(data3, options3);
 
         // Gráfico 4: Donut (Distribución Socioeconómica)
         var data4 = google.visualization.arrayToDataTable([
-          ['Clasificación', 'Porcentaje'],
+          ['Clasificación', 'Porcentaje (%)'],
           ['Pobreza moderada', 34.5], ['No pobre y no vulnerable', 23.5],
           ['Vulnerable carencias', 29.3], ['Pobreza extrema', 7.4], ['Vulnerable ingresos', 5.3]
         ]);
-        var options4 = { title: 'Distribución Socioeconómica de la Población (2018)', pieHole: 0.4, colors: ['#1A365D', '#2980B9', '#27AE60', '#E74C3C', '#F39C12'] };
+        var options4 = { 
+          title: 'Distribución Socioeconómica de la Población (2018 - %)', 
+          pieHole: 0.4, 
+          colors: ['#1A365D', '#2980B9', '#27AE60', '#E74C3C', '#F39C12'] 
+        };
         var chart4 = new google.visualization.PieChart(document.getElementById('chart_div_4'));
         chart4.draw(data4, options4);
 
         // Gráfico 5: Áreas (Ingreso por Deciles)
         var data5 = google.visualization.arrayToDataTable([
-          ['Decil', 'Ingreso Trimestral (Miles MXN)'],
+          ['Decil', 'Ingreso Trimestral (Miles de MXN)'],
           ['Decil I', 3.18], ['Decil III', 7.82], ['Decil V', 12.45],
           ['Decil VIII', 23.12], ['Decil X', 58.94]
         ]);
-        var options5 = { title: 'Ingreso Promedio Trimestral de los Hogares por Decil (2018)', legend: { position: 'none' }, colors: ['#8E44AD'], hAxis: {title: 'Decil'} };
+        var options5 = { 
+          title: 'Ingreso Promedio Trimestral de los Hogares por Decil (2018)', 
+          legend: { position: 'none' }, 
+          colors: ['#8E44AD'], 
+          hAxis: { title: 'Decil de Hogares' },
+          vAxis: { title: 'Miles de Pesos (MXN)' }
+        };
         var chart5 = new google.visualization.AreaChart(document.getElementById('chart_div_5'));
         chart5.draw(data5, options5);
       }
