@@ -23,7 +23,8 @@
           legend: { position: 'bottom' }, 
           colors: ['#1A365D'],
           vAxis: { title: 'Millones de personas' },
-          hAxis: { title: 'Año' }
+          hAxis: { title: 'Año' },
+          chartArea: { width: '75%', height: '65%' }
         };
         var chart1 = new google.visualization.LineChart(document.getElementById('chart_div_1'));
         chart1.draw(data1, options1);
@@ -39,7 +40,8 @@
           legend: { position: 'none' }, 
           colors: ['#2980B9'],
           vAxis: { title: 'Millones de personas' },
-          hAxis: { title: 'Año' }
+          hAxis: { title: 'Año' },
+          chartArea: { width: '75%', height: '65%' }
         };
         var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_div_2'));
         chart2.draw(data2, options2);
@@ -56,7 +58,8 @@
           legend: { position: 'none' }, 
           colors: ['#27AE60'],
           hAxis: { title: 'Porcentaje (%)' },
-          vAxis: { title: 'Tipo de Carencia' }
+          vAxis: { title: 'Tipo de Carencia' },
+          chartArea: { width: '70%', height: '65%' }
         };
         var chart3 = new google.visualization.BarChart(document.getElementById('chart_div_3'));
         chart3.draw(data3, options3);
@@ -70,7 +73,8 @@
         var options4 = { 
           title: 'Distribución Socioeconómica de la Población (2018 - %)', 
           pieHole: 0.4, 
-          colors: ['#1A365D', '#2980B9', '#27AE60', '#E74C3C', '#F39C12'] 
+          colors: ['#1A365D', '#2980B9', '#27AE60', '#E74C3C', '#F39C12'],
+          chartArea: { width: '85%', height: '70%' }
         };
         var chart4 = new google.visualization.PieChart(document.getElementById('chart_div_4'));
         chart4.draw(data4, options4);
@@ -86,7 +90,8 @@
           legend: { position: 'none' }, 
           colors: ['#8E44AD'], 
           hAxis: { title: 'Decil de Hogares' },
-          vAxis: { title: 'Miles de Pesos (MXN)' }
+          vAxis: { title: 'Miles de Pesos (MXN)' },
+          chartArea: { width: '80%', height: '65%' }
         };
         var chart5 = new google.visualization.AreaChart(document.getElementById('chart_div_5'));
         chart5.draw(data5, options5);
@@ -94,12 +99,17 @@
     </script>
     <style>
         body { font-family: Arial, sans-serif; background-color: #F7FAFC; color: #2D3748; margin: 0; padding: 20px; text-align: center; }
-        h1 { color: #1A365D; margin-bottom: 5px; }
-        .author { color: #4A5568; font-size: 14px; margin-bottom: 25px; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .card { background: white; border: 1px solid #E2E8F0; border-radius: 8px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .chart { width: 100%; height: 350px; }
+        h1 { color: #1A365D; margin-bottom: 5px; font-size: 24px; }
+        .author { color: #4A5568; font-size: 14px; margin-bottom: 30px; }
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .card { background: white; border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card-full { grid-column: span 2; }
+        .chart { width: 100%; height: 380px; }
         .footer-source { margin-top: 40px; padding: 15px; background-color: #EDF2F7; border-top: 2px solid #CBD5E0; color: #4A5568; font-size: 13px; font-weight: bold; text-align: center; max-width: 1200px; margin-left: auto; margin-right: auto; border-radius: 0 0 8px 8px; }
+        @media (max-width: 900px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .card-full { grid-column: span 1; }
+        }
     </style>
 </head>
 <body>
@@ -111,7 +121,7 @@
         <div class="card"><div id="chart_div_2" class="chart"></div></div>
         <div class="card"><div id="chart_div_3" class="chart"></div></div>
         <div class="card"><div id="chart_div_4" class="chart"></div></div>
-        <div class="card" style="grid-column: span 2;"><div id="chart_div_5" class="chart"></div></div>
+        <div class="card card-full"><div id="chart_div_5" class="chart"></div></div>
     </div>
 
     <div class="footer-source">
